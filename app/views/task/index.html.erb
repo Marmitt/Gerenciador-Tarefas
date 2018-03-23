@@ -1,0 +1,19 @@
+<h1>Task#index</h1>
+<p>Find me in app/views/task/index.html.erb</p>
+
+<% Task.all.each do |task| %>
+<p>
+    <%= task.description %> | 
+    <%= task.finished ? 'fechada' : 'aberta' %>
+    <%= link_to 'fechar', action: :finished, params:{id: task.id} %>
+</p>
+<% end %>
+<h1>
+  cadastrar tarefa
+</h1>
+<%= form_tag(action: 'create') do %>
+<%= label_tag(:description, 'descrição')%>
+<%= text_field_tag(:discription)%>
+<%= submit_tag('cadastrar')%>
+
+<% end %>
