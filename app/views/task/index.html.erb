@@ -11,7 +11,7 @@
 <h1>
   cadastrar tarefa
 </h1>
-<%= form_tag(action: 'create', method: 'get') do %>
+<%= form_tag({action: 'create'}, {method: 'get'}) do %>
 <%= label_tag(:description, 'descrição')%>
 <%= text_field_tag(:discription)%>
 <%= submit_tag('cadastrar')%>
