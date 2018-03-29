@@ -3,9 +3,11 @@
 
 <% Task.all.each do |task| %>
 <p>
-    <%= task.description %> | 
+    <%= task.description %> |
     <%= task.finished ? 'fechada' : 'aberta' %>
+    <% unless task.finished? %>
     <%= link_to 'fechar', action: :finished, params:{id: task.id} %>
+    <% end %>
 </p>
 <% end %>
 <h1>
