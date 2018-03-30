@@ -14,5 +14,10 @@ class TaskController < ApplicationController
     #render text: 'Teste' + params[:id]
     Task.find_by_id(params[:id]). update_attribute(:finished, true)
     redirect_to action: 'index'
+    end
+    def open 
+      task = Task.find_by_id(params[:id])
+      task.update_attribute(:finished) if task
+      redirect_to action: 'index'
   end
 end
