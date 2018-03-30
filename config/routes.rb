@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'task/finished'
 
   root 'task#index'
+  
+  get 'task/open'
+  
+  get 'task/delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
