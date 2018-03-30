@@ -3,8 +3,11 @@ class TaskController < ApplicationController
   end
 
   def create
-    Task.create(description: params[:description], finished: false)
-    redirect_to action: 'index'
+    task = Task.new(description: params[:description], finished: false)
+    if task.save!
+      redirect_to action: 'index'
+    else
+      redirect_to action: 'index', notice: 'Tarefa nao foi criada.'
   end
 
   def finished
