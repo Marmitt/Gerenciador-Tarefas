@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'task#index'
   
-  get 'task/open'
+  get 'task/reopen'
   
   get 'task/delete'
   # The priority is based upon order of creation: first created -> highest priority.

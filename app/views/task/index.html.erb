@@ -1,21 +1,21 @@
-<h1>Task#index</h1>
-<p>Find me in app/views/task/index.html.erb</p>
+<h1><b>Gerenciador de Tarefas</b></h1>
 
-<% Task.all.each do |task| %>
-<p>
-    <%= task.description %> |
-    <%= task.finished ? 'fechada' : 'aberta' %>
-    <% unless task.finished? %>
-    <%= link_to 'fechar', action: :finished, params:{id: task.id} %>
-    <% end %>
-</p>
-<% end %>
-<h1>
-  cadastrar tarefa
-</h1>
+<br><h2>Cadastrar Tarefa</h2>
 <%= form_tag({action: 'create'}, {method: 'get'}) do %>
-<%= label_tag(:description, 'descrição')%>
-<%= text_field_tag(:discription)%>
-<%= submit_tag('cadastrar')%>
+  <%= label_tag(:description, "Descrição:") %>
+  <%= text_field_tag(:description) %>
+  <%= submit_tag("Cadastrar") %>
+<% end %>
 
+<br><h2>Lista</h2>
+<% Task.all.each do |task| %>
+  <div>  
+    <%= task.finished ? 'Concluída' : 'Pendente' %>&nbsp | &nbsp
+    <b><%= task.description %></b><br />    
+    <%#= button_to 'Concluir', action: :finished, method: :post, remote: true, params: { id: task.id } unless task.finished %>
+    <%= link_to 'Concluir', action: :finished, params: { id: task.id }  unless task.finished %>
+    <%= link_to 'Reabrir', action: :reopen, params: { id: task.id }  if task.finished %>
+    <%= link_to 'Apagar', action: :delete, params: { id: task.id } %>    
+    <hr />
+  </div>
 <% end %>
