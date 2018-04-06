@@ -15,7 +15,8 @@
     <%#= button_to 'Concluir', action: :finished, method: :post, remote: true, params: { id: task.id } unless task.finished %>
     <%= link_to 'Concluir', action: :finished, params: { id: task.id }  unless task.finished %>
     <%= link_to 'Reabrir', action: :reopen, params: { id: task.id }  if task.finished %>
-    <%= link_to 'Apagar', action: :delete, params: { id: task.id } %>    
+    <%= link_to 'Apagar', action: :delete, params: { id: task.id } %>
+    <%= link_to 'Editar', action: :edit, params: { id: task.id } %>
     <hr />
   </div>
 <% end %>
